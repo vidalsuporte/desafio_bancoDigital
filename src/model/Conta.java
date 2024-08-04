@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 
 import service.Transacoes;
@@ -75,16 +76,38 @@ transancoesMap.put(LocalDateTime.now(), new Transacoes("Tranferência para conta
 	}
 
 
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(agencia, saldo, transancoesMap);
 	}
 
 
-
+public void imprimeDadosConta() {
+	
+	System.out.println("Numero agência: " + this.getAgencia());
+	System.out.println("Numero conta: " + this.getNumero());
+	System.out.println(String.format("Saldo: R$ %.2f", this.getSaldo()));
+	
+	
+}
 	
 
+public void extrato() {
+	
+
+	for (Entry<LocalDateTime, Transacoes> t : transancoesMap.entrySet()) {
+		
+		System.out.println("Data: " + t.getValue().getData());
+		System.out.println("Tipo: " + t.getValue().getTipo());
+		System.out.println("Valor: " + t.getValue().getValor());
+		System.out.println("----------------------------------");
+		System.out.println("");
+
+}
+
+System.out.println(String.format("Saldo: R$ %.2f", this.getSaldo()));
+
+}
 
 
 	@Override

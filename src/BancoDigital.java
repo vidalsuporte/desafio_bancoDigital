@@ -9,7 +9,7 @@ public class BancoDigital {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
- Banco bancoDigital = new Banco("Banco Dede", 2478);		
+ Banco bancoDigital = new Banco("Banco Desafio DIO", 2478);		
  
  bancoDigital.adicionaCliente(new Cliente("Andre", "1234"));
  bancoDigital.adicionaCliente(new Cliente("Analice", "12345"));
@@ -33,10 +33,15 @@ System.out.println("--------");
  Conta cp3 = new ContaPoupanca(bancoDigital.getAgencia());
  Conta cc4 = new ContaCorrente(bancoDigital.getAgencia());
  Conta cp4 = new ContaPoupanca(bancoDigital.getAgencia());
-	
+
+ 
+ 
+ 
+ 
+ 
 		
 bancoDigital.pesquisarPorCPF("1234").adicionaConta(contaCorrente);		
-bancoDigital.pesquisarPorCPF("1234").adicionaConta(contaPupanca);
+bancoDigital.pesquisarPorCPF("1234").adicionaConta(cp4);
 bancoDigital.pesquisarPorCPF("12345").adicionaConta(cc1);		
 bancoDigital.pesquisarPorCPF("12345").adicionaConta(cp2);
 bancoDigital.pesquisarPorCPF("123456").adicionaConta(cp1);		
@@ -44,13 +49,16 @@ bancoDigital.pesquisarPorCPF("123456").adicionaConta(cc4);
 bancoDigital.pesquisarPorCPF("12").adicionaConta(cc2);		
 bancoDigital.pesquisarPorCPF("12").adicionaConta(cp3);
 bancoDigital.pesquisarPorCPF("1234567").adicionaConta(cc3);		
-bancoDigital.pesquisarPorCPF("1234567").adicionaConta(cp4);
-
-
-
+bancoDigital.pesquisarPorCPF("1234567").adicionaConta(contaPupanca);
 
 System.out.println("-------------------------");
+System.out.println("Lista de Conta do Cliente");
+System.out.println(bancoDigital.pesquisarPorCPF("1234"));
+bancoDigital.pesquisarPorCPF("1234").getContasList().stream().forEach(System.out::println);
 
+
+
+System.out.println("----------------------------------");
 
 contaCorrente.setLimiteChequeEspecial(700.0);
 contaCorrente.depositar(1000.00);
@@ -85,13 +93,13 @@ contaCorrente.transferir(cp4, 2000.00);
 
 System.out.println("-------------------------");
 
-System.out.println(contaCorrente);
-System.out.println(cp4);
+contaCorrente.imprimeDadosConta();
+cp4.imprimeDadosConta();
 
 
+contaCorrente.extrato();
 
-
-
+cp4.extrato();
 		
 	}
 

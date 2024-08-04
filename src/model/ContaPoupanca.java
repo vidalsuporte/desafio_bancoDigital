@@ -2,26 +2,26 @@ package model;
 
 public class ContaPoupanca extends Conta {
 
-	
-
-	
-public ContaPoupanca(int agencia) {
+	public ContaPoupanca(int agencia) {
 		super(agencia);
-		
+
 		// TODO Auto-generated constructor stub
 	}
 
-public void exibirSaldo() {
-		
-		System.out.println("Saldo diponível na Conta Poupança é: ");
-		System.out.println("Saldo : " + getSaldo());
-		
-		
+	@Override
+	public void imprimeDadosConta() {
+		System.out.println("Dados da Conta Poupança");
+		super.imprimeDadosConta();
+		System.out.println("__________________");
+		System.out.println("");
+
 	}
 
+	public void extrato() {
+		System.out.println("Extrato Conta Poupança");
 
-	
-	
-	
-	
+		super.extrato();
+
+	}
+
 }

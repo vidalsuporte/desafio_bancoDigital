@@ -128,10 +128,32 @@ public class ContaCorrente extends Conta {
 				+ saldoChequeEpecial + ", numero=" + numero + ", agencia=" + agencia + ", saldo=" + saldo
 				+ ", transancoesMap=" + transancoesMap + "]";
 	}
+@Override
+	public void imprimeDadosConta() {
+		System.out.println("Dados da Conta Corrente");
+		super.imprimeDadosConta();
+		System.out.println(String.format("Limite Cheque special: R$ %.2f", this.getLimiteChequeEspecial()));
+		System.out.println(String.format("Saldo Cheque special: R$ %.2f", this.getSaldoChequeEpecial()));
+		System.out.println("__________________");
+		System.out.println("");
+		
+	}
+	
+public void extrato() {
+	System.out.println("Extrato Conta Corrente");
+	
+	super.extrato();
+	
+	System.out.println(String.format("Saldo Cheque special: R$ %.2f", this.getSaldoChequeEpecial()));
+	
+	
+	
+}	
 
-	
-	
-	
+
+
+
+
 	
 	
 }
