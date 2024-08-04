@@ -1,6 +1,5 @@
 package model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import service.Transacoes;
@@ -27,7 +26,7 @@ public class ContaCorrente extends Conta {
 	public void setLimiteChequeEspecial(Double limiteChequeEspecial) {
 		this.limiteChequeEspecial = limiteChequeEspecial;
 		this.saldoChequeEpecial = limiteChequeEspecial;
-		transancoesMap.put(LocalDate.now(), new Transacoes("Definido Limite do cheque especial", limiteChequeEspecial));
+		transancoesMap.put(LocalDateTime.now(), new Transacoes("Definido Limite do cheque especial", limiteChequeEspecial));
 		
 		
 	}
@@ -50,17 +49,17 @@ public class ContaCorrente extends Conta {
 				Double depSaldo = valor - diferenca;
 				saldo += depSaldo;
 				saldoChequeEpecial += valor - depSaldo;
-				transancoesMap.put(LocalDate.now(), new Transacoes("Deposito cheque especial ", valor - depSaldo));
-				transancoesMap.put(LocalDate.now(), new Transacoes("Deposito", valor));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Deposito cheque especial ", valor - depSaldo));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Deposito", valor));
 
 			} else {
 				saldoChequeEpecial += valor;
-				transancoesMap.put(LocalDate.now(), new Transacoes("Deposito cheque especial ", valor));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Deposito cheque especial ", valor));
 			}
 
 		} else {
 			saldo += valor;
-			transancoesMap.put(LocalDate.now(), new Transacoes("Deposito", valor));
+			transancoesMap.put(LocalDateTime.now(), new Transacoes("Deposito", valor));
 		}
 
 	}
@@ -73,13 +72,13 @@ public class ContaCorrente extends Conta {
 
 			if (saldo >= valor) {
 				saldo -= valor;
-				transancoesMap.put(LocalDate.now(), new Transacoes("Saque Saldo", valor));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Saque Saldo", valor));
 			} else {
 				Double diferenca = valor - saldo;
 				
 				saldoChequeEpecial -= diferenca;
-				transancoesMap.put(LocalDate.now(), new Transacoes("Saque Saldo ", saldo));
-				transancoesMap.put(LocalDate.now(), new Transacoes("Saque Saldo Cheque Epecial ", diferenca));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Saque Saldo ", saldo));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Saque Saldo Cheque Epecial ", diferenca));
 				saldo = 0.0;
 			}
 
@@ -98,13 +97,13 @@ public class ContaCorrente extends Conta {
 
 			if (saldo >= valor) {
 				saldo -= valor;
-				transancoesMap.put(LocalDate.now(), new Transacoes("Tranferencia Saldo", valor));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Tranferencia Saldo", valor));
 			} else {
 				Double diferenca = valor - saldo;
 				
 				saldoChequeEpecial -= diferenca;
-				transancoesMap.put(LocalDate.now(), new Transacoes("Tranferencia Saldo ", saldo));
-				transancoesMap.put(LocalDate.now(), new Transacoes("Tranferencia Saldo Cheque Epecial ", diferenca));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Tranferencia Saldo ", saldo));
+				transancoesMap.put(LocalDateTime.now(), new Transacoes("Tranferencia Saldo Cheque Epecial ", diferenca));
 				saldo = 0.0;
 			}
 

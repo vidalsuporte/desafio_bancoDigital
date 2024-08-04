@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +15,7 @@ public class Conta {
 	protected long numero = 0L;
 	protected int agencia;
 	protected Double saldo = 0.0;
-	protected Map<LocalDate, Transacoes> transancoesMap = new HashMap<LocalDate,Transacoes>();
+	protected Map<LocalDateTime, Transacoes> transancoesMap = new HashMap<LocalDateTime,Transacoes>();
 	
 		
 	
@@ -37,10 +37,10 @@ public class Conta {
 
 	public int getAgencia() {
 		return agencia;
+
 	}
 
-
-	public Map<LocalDate, Transacoes> getTrasancoesMap() {
+	public Map<LocalDateTime, Transacoes> getTrasancoesMap() {
 		return transancoesMap;
 	}
 
@@ -55,7 +55,7 @@ public class Conta {
 	public void depositar(Double valor) {
 		
 	this.saldo += valor;
-transancoesMap.put(LocalDate.now(), new Transacoes("Deposito", valor));
+transancoesMap.put(LocalDateTime.now(), new Transacoes("Deposito", valor));
 	
 	
 	
@@ -64,13 +64,13 @@ transancoesMap.put(LocalDate.now(), new Transacoes("Deposito", valor));
 	public void sacar(Double valor) {
 		
 		this.saldo -= valor;
-transancoesMap.put(LocalDate.now(), new Transacoes("Saque", valor));
+transancoesMap.put(LocalDateTime.now(), new Transacoes("Saque", valor));
 	}
 	
 	public void transferir(Conta c, Double valor) {
 		this.sacar(valor);
 		c.depositar(valor);
-transancoesMap.put(LocalDate.now(), new Transacoes("Tranferência para conta nº " + c.getNumero(), valor));		
+transancoesMap.put(LocalDateTime.now(), new Transacoes("Tranferência para conta nº " + c.getNumero(), valor));		
 		
 	}
 

@@ -47,7 +47,7 @@ bancoDigital.pesquisarPorCPF("1234567").adicionaConta(cc3);
 bancoDigital.pesquisarPorCPF("1234567").adicionaConta(cp4);
 
 
-bancoDigital.getClientesList().stream().forEach(System.out::println);
+
 
 System.out.println("-------------------------");
 
@@ -57,8 +57,11 @@ contacorrente.depositar(1000.00);
 
 System.out.println(contacorrente);
 
+System.out.println("-------------------------");
 
-		
+contacorrente.sacar(800.0);
+
+System.out.println(contacorrente);	
 
 		
 		

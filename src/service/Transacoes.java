@@ -1,11 +1,11 @@
 package service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Transacoes {
 
-	private LocalDate data;
+	private LocalDateTime data;
 	private String tipo;
 	private Double valor;
 	
@@ -14,7 +14,7 @@ public class Transacoes {
 	
 	public Transacoes( String tipo, Double valor) {
 		super();
-		this.data = LocalDate.now();
+		this.data = LocalDateTime.now();
 		this.tipo = tipo;
 		this.valor = valor;
 	}
@@ -22,7 +22,7 @@ public class Transacoes {
 
 
 
-	public LocalDate getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
