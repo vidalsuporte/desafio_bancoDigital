@@ -76,7 +76,15 @@ public class ContaCorrente extends Conta {
 				
 				saldoChequeEpecial -= diferenca;
 				transancoesMap.put(LocalDateTime.now(), new Transacoes("Saque Saldo ", saldo));
-				transancoesMap.put(LocalDateTime.now(), new Transacoes("Saque Saldo Cheque Epecial ", diferenca));
+				
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+			transancoesMap.put(LocalDateTime.now(), new Transacoes("Saque Saldo Cheque Epecial ", diferenca));
 				saldo = 0.0;
 			}
 
@@ -144,7 +152,7 @@ public void extrato() {
 	
 	System.out.println(String.format("Saldo Cheque special: R$ %.2f", this.getSaldoChequeEpecial()));
 	
-	
+	System.out.println("");
 	
 }	
 

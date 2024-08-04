@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.TreeMap;
 
 public class Conta {
 	
@@ -91,9 +92,9 @@ public void imprimeDadosConta() {
 	
 
 public void extrato() {
-	
+	Map<LocalDateTime, Transacoes> transacoesTreeMap = new TreeMap<>(transancoesMap);
 
-	for (Entry<LocalDateTime, Transacoes> t : transancoesMap.entrySet()) {
+	for (Entry<LocalDateTime, Transacoes> t : transacoesTreeMap.entrySet()) {
 		
 		System.out.println("Data: " + t.getValue().getData());
 		System.out.println("Tipo: " + t.getValue().getTipo());

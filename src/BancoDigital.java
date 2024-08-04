@@ -24,22 +24,17 @@ System.out.println("--------");
  
  
  ContaCorrente contaCorrente = new ContaCorrente(bancoDigital.getAgencia());
- Conta contaPupanca = new ContaPoupanca(bancoDigital.getAgencia());
- Conta cc1 = new ContaCorrente(bancoDigital.getAgencia());
- Conta cp1 = new ContaPoupanca(bancoDigital.getAgencia());
- Conta cc2 = new ContaCorrente(bancoDigital.getAgencia());
- Conta cp2 = new ContaPoupanca(bancoDigital.getAgencia());
- Conta cc3 = new ContaCorrente(bancoDigital.getAgencia());
- Conta cp3 = new ContaPoupanca(bancoDigital.getAgencia());
- Conta cc4 = new ContaCorrente(bancoDigital.getAgencia());
- Conta cp4 = new ContaPoupanca(bancoDigital.getAgencia());
+ ContaPoupanca contaPupanca = new ContaPoupanca(bancoDigital.getAgencia());
+ ContaCorrente cc1 = new ContaCorrente(bancoDigital.getAgencia());
+ ContaPoupanca cp1 = new ContaPoupanca(bancoDigital.getAgencia());
+ ContaCorrente cc2 = new ContaCorrente(bancoDigital.getAgencia());
+ ContaPoupanca cp2 = new ContaPoupanca(bancoDigital.getAgencia());
+ ContaCorrente cc3 = new ContaCorrente(bancoDigital.getAgencia());
+ ContaPoupanca cp3 = new ContaPoupanca(bancoDigital.getAgencia());
+ ContaCorrente cc4 = new ContaCorrente(bancoDigital.getAgencia());
+ ContaPoupanca cp4 = new ContaPoupanca(bancoDigital.getAgencia());
 
- 
- 
- 
- 
- 
-		
+
 bancoDigital.pesquisarPorCPF("1234").adicionaConta(contaCorrente);		
 bancoDigital.pesquisarPorCPF("1234").adicionaConta(cp4);
 bancoDigital.pesquisarPorCPF("12345").adicionaConta(cc1);		
@@ -50,6 +45,14 @@ bancoDigital.pesquisarPorCPF("12").adicionaConta(cc2);
 bancoDigital.pesquisarPorCPF("12").adicionaConta(cp3);
 bancoDigital.pesquisarPorCPF("1234567").adicionaConta(cc3);		
 bancoDigital.pesquisarPorCPF("1234567").adicionaConta(contaPupanca);
+
+System.out.println(bancoDigital.getNome()); 
+bancoDigital.getClientesList().stream().forEach(System.out::println);
+System.out.println("--------"); 
+ 
+
+
+
 
 System.out.println("-------------------------");
 System.out.println("Lista de Conta do Cliente");
@@ -63,29 +66,29 @@ System.out.println("----------------------------------");
 contaCorrente.setLimiteChequeEspecial(700.0);
 contaCorrente.depositar(1000.00);
 
-System.out.println(contaCorrente);
+contaCorrente.imprimeDadosConta();
 
 System.out.println("-------------------------");
 
 contaCorrente.sacar(800.0);
 
-System.out.println(contaCorrente);	
+contaCorrente.imprimeDadosConta();
 
 
 System.out.println("-------------------------");
 
 contaCorrente.sacar(800.0);
 
-System.out.println(contaCorrente);	
+contaCorrente.imprimeDadosConta();
 
 
 System.out.println("-------------------------");
 
 contaCorrente.depositar(6200.0);
 
-System.out.println(contaCorrente);
+contaCorrente.imprimeDadosConta();
 
-System.out.println(cp4);
+cp4.imprimeDadosConta();
 
 
 contaCorrente.transferir(cp4, 2000.00);
