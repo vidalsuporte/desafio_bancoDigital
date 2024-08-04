@@ -2,8 +2,6 @@ package model;
 
 import java.time.LocalDateTime;
 
-import service.Transacoes;
-
 public class ContaCorrente extends Conta {
 	
 	

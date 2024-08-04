@@ -6,8 +6,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 
-import service.Transacoes;
-
 public class Conta {
 	
 	
